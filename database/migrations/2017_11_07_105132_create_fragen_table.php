@@ -14,8 +14,7 @@ class CreateFragenTable extends Migration
     public function up()
     {
         Schema::create('fragen', function (Blueprint $table) {
-            $table->integer('pk_frageID');
-            $table->primary('pk_frageID');
+            $table->increments('pk_frageID');
             $table->string('frage');
             $table->string('option1');
             $table->string('option2');

@@ -14,8 +14,7 @@ class CreateTagsTable extends Migration
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
-          $table->integer('pk_tagid');  
-          $table->primary('pk_tagid');
+          $table->increments('pk_tagid');  
           $table->string('tagname');
           $table->timestamps();
         });
