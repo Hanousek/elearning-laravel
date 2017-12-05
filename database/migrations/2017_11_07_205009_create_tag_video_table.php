@@ -14,14 +14,16 @@ class CreateTagVideoTable extends Migration
     public function up()
     {
         Schema::create('tag_videos', function (Blueprint $table) {
-            $table->integer('fk_tagid');
+            $table->integer('fk_tagid')->unsigned();
             $table->foreign('fk_tagid')
             ->references('pk_tagid')
-            ->on('tags');
-            $table->integer('fk_videoID');
+            ->on('tags')
+            ->onDelete('cascade');
+            $table->integer('fk_videoID')->unsigned();
             $table->foreign('fk_videoID')
             ->references('pk_videoID')
-            ->on('videos');
+            ->on('videos')
+            ->onDelete('cascade');
             $table->primary(['fk_tagid', 'fk_videoID']);
             $table->timestamps();
         });

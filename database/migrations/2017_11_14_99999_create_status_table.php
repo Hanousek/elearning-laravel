@@ -16,14 +16,16 @@ class CreateStatusTable extends Migration
       if(!Schema::hasTable('status')){
         Schema::create('status', function (Blueprint $table) {
             $table->increments('pk_statusID');
-            $table->integer('fk_userID');
+            $table->integer('fk_userID')->unsigned();
             $table->foreign('fk_userID')
             ->references('pk_userID')
-            ->on('users');
-            $table->integer('fk_frageID');
+            ->on('users')
+            ->onDelete('cascade');
+            $table->integer('fk_frageID')->unsigned();
             $table->foreign('fk_frageID')
             ->references('pk_frageID')
-            ->on('fragen');
+            ->on('fragen')
+            ->onDelete('cascade');
             $table->boolean('result');
             $table->timestamps();
         });
