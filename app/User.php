@@ -27,9 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function status(){
+    public function fragen(){
 
-      return $this->hasMany('App\Status', 'pk_userID', 'fk_userID');
+      return $this->hasMany('App\Fragen', 'pk_userID', 'fk_userID')->using('App\Status');
 
     }
 

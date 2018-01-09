@@ -26,7 +26,7 @@ class CreateStatusTable extends Migration
             ->references('pk_frageID')
             ->on('fragen')
             ->onDelete('cascade');
-            $table->boolean('result');
+            $table->boolean('correct');
             $table->timestamps();
         });
       }

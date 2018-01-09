@@ -20,6 +20,10 @@ class Frage extends Model
       'frage', 'option1', 'option2', 'option3', 'option4',
   ];
 
+  public function users(){
 
+    return $this->belongsToMany('App\User')->using('App\Status');
+
+  }
 
 }
