@@ -19,6 +19,11 @@ class CreateVideosTable extends Migration
             $table->string('thumbnail_alt');
             $table->string('video');
             $table->string('thema');
+            $table->integer('fk_themaID')->unsigned();
+            $table->foreign('fk_themaID')
+            ->references('pk_themaID')
+            ->on('thema')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

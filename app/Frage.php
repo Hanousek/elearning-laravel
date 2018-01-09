@@ -26,4 +26,10 @@ class Frage extends Model
 
   }
 
+  public function video(){
+
+    return $this->belongsTo('videos', 'pk_videoID', 'fk_videoID');
+
+  }
+
 }

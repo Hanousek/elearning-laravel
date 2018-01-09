@@ -24,4 +24,16 @@ class Video extends Model
 
   }
 
+  public function fragen(){
+
+    return $this->hasMany('fragen', 'fk_VideoID','pk_VideoID');
+
+  }
+
+  public function thema(){
+
+    return $this->belongsTo('themas', 'fk_themaID', 'pk_themaID')
+
+  }
+
 }
