@@ -22,7 +22,7 @@ class CreateVideosTable extends Migration
             $table->integer('fk_themaID')->unsigned();
             $table->foreign('fk_themaID')
             ->references('pk_themaID')
-            ->on('thema')
+            ->on('themas')
             ->onDelete('cascade');
             $table->timestamps();
         });
